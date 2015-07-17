@@ -11,8 +11,8 @@ function parse(text) {
             write("/download, /about, /commands, /features, /sourcecode, /contact");
         } else if (command == "/features"){
             write("SICK has many features. Some include logging, multiple channels in a single terminal window, a high level of configurability, and an extensive api for scripting in Cure (SICK's built-in scripting language), Python, and Bash.")
-        } else if(command == "/sourcecode"){
-            write("You can view the source code from <a href='https://github.com/weloxux/sick'>GitHub</a> or <a href='http://sourceforge.net/p/sick-client/code/ci/master/tree/'>Sourceforge</a>.")
+        } else if(command == "/source"){
+            write("You can view SICK's source code from <a href='https://github.com/weloxux/sick'>GitHub</a> or <a href='http://sourceforge.net/p/sick-client/code/ci/master/tree/'>Sourceforge</a>. The site's source is at <a href='https://github.com/sickdev/sicksite'>GitHub</a>.)
         } else if(command == "/8ball"){
             var responses = [
                 "It is certain",
