@@ -8,7 +8,7 @@ function parse(text) {
         } else if (command == "/about"){
             write("Sick IRC Client, Kid! or SICK for short, is a Unix and GNU/Linux IRC client running from the terminal, written in pure Python. The entire project is licensed under the GNU General Public License, version 2. The website has been done by <a href='https://github.com/CallumBarclay'>Callum Barclay</a>.");
         } else if (command == "/help" || command == "/commands"){
-            write("/download, /about, /commands, /features, /sourcecode, /contact");
+            write("/download, /about, /commands, /features, /source, /contact");
         } else if (command == "/features"){
             write("SICK has many features. Some include logging, multiple channels in a single terminal window, a high level of configurability, and an extensive api for scripting in Cure (SICK's built-in scripting language), Python, and Bash.")
         } else if(command == "/source"){
