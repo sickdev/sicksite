@@ -4,7 +4,7 @@ function parse(text) {
 
     if(command.charAt(0) == "/"){
         if (command == "/download"){
-            write("You can download SICK from <a href='http://sourceforge.net/projects/sick-client/files/latest/download'>Sourceforge</a> or from <a href='https://github.com/weloxux/sick'>Github</a>")
+            write("You can download SICK from <a href='http://sourceforge.net/projects/sick-client/files/latest/download'>Sourceforge</a> or from <a href='https://github.com/weloxux/sick/releases/latest'>Github</a>")
         } else if (command == "/about"){
             write("Sick IRC Client, Kid! or SICK for short, is a Unix and GNU/Linux IRC client running from the terminal, written in pure Python. The entire project is licensed under the GNU General Public License, version 2. The website has been done by <a href='https://github.com/CallumBarclay'>Callum Barclay</a>.");
         } else if (command == "/help" || command == "/commands"){
