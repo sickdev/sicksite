@@ -98,8 +98,8 @@ function getUserInput(){
     document.getElementById("input").onkeydown = getcommand;
 
 }
-write("SICK IRC Client - <i>So sick you'll toss your cookies!</i>")
-write("Please enter a command, for a list of commands, say \"/commands\".");
+write("SICK - <i>So sick you'll toss your cookies!</i>")
+write("Please enter a command. For a list of commands, say \"/commands\".");
 getUserInput();
 
 //Chat bot o matic three thousand
