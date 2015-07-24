@@ -71,9 +71,24 @@ function getTime(){
     return hours+":"+minutes;
 }
 
+function sanitize(inp){
+  var charCodes       = [],
+      sanitizedString = "";
+  
+  for(var char in inp){
+    charCodes.push(inp.charCodeAt(char));
+  }
+  
+  for(var code of charCodes){
+    sanitizedString += "&#" + code + ";";
+  }
+  
+  return sanitizedString;
+}
+
 function write(text){
     var screen = document.getElementById("screen");
-    screen.innerHTML+= "<p class='code'>["+getTime()+"] &lt;<span class='person'>~SICK</span>&gt; "+text+"</p>";
+    screen.innerHTML+= "<p class='code'>["+getTime()+"] &lt;<span class='person'>~SICK</span>&gt; "+sanitize(text)+"</p>";
 }
 
 var lastText = "";
