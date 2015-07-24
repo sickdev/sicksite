@@ -1,47 +1,19 @@
-var cookies = 0;
 function parse(text) {
     command = text.split(' ')[0];
 
     if(command.charAt(0) == "/"){
         if (command == "/download"){
-            write("You can download SICK from <a href='http://sourceforge.net/projects/sick-client/files/latest/download'>Sourceforge</a> or from <a href='https://github.com/weloxux/sick/releases/latest'>Github</a>")
+            write("You can download SICK from <a href='http://sourceforge.net/projects/sick-client/files/latest/download'>Sourceforge</a> or from <a href='https://github.com/weloxux/sick'>Github</a>")
         } else if (command == "/about"){
             write("Sick IRC Client, Kid! or SICK for short, is a Unix and GNU/Linux IRC client running from the terminal, written in pure Python. The entire project is licensed under the GNU General Public License, version 2. The website has been done by <a href='https://github.com/CallumBarclay'>Callum Barclay</a>.");
         } else if (command == "/help" || command == "/commands"){
-            write("/download, /about, /commands, /features, /source, /contact");
+            write("/download, /about, /commands, /features, /sourcecode, /contact");
         } else if (command == "/features"){
             write("SICK has many features. Some include logging, multiple channels in a single terminal window, a high level of configurability, and an extensive api for scripting in Cure (SICK's built-in scripting language), Python, and Bash.")
-        } else if(command == "/source"){
-            write("You can view SICK's source code from <a href='https://github.com/weloxux/sick'>GitHub</a> or <a href='http://sourceforge.net/p/sick-client/code/ci/master/tree/'>Sourceforge</a>. The site's source is at <a href='https://github.com/sickdev/sicksite'>GitHub</a>.")
+        } else if(command == "/sourcecode"){
+            write("You can view the source code from <a href='https://github.com/weloxux/sick'>GitHub</a> or <a href='http://sourceforge.net/p/sick-client/code/ci/master/tree/'>Sourceforge</a>.")
         } else if(command == "/8ball"){
-            var responses = [
-                "It is certain",
-                "It is decidedly so",
-                "Without a doubt",
-                "Yes definitely",
-                "You may rely on it",
-                "As I see it, yes",
-                "Most likely",
-                "Outlook good",
-                "Yes",
-                "Signs point to yes",
-                "Reply hazy try again",
-                "Ask again later",
-                "Better not tell you now",
-                "Cannot predict now",
-                "Concentrate and ask again",
-                "Don't count on it",
-                "My reply is no",
-                "My sources say no",
-                "Outlook not so good",
-                "Very doubtful"
-            ];
             
-            index = Math.floor(Math.random() * jokes.length)-1;
-            write(responses[index]);
-        } else if(command == "/cookieclicker"){
-            cookies++;
-            write("You have clicked " + cookies + " cookies.")
         } else if(command == "/contact"){
             write("For feature request or bugs, create an issue over at our GitHub page. If you have questions, or need support in some other way (or just want to have a nice chat), we can be found in <a href='irc://irc.freenode.net:6667/SICK'>#SICK on freenode</a>. If there's something you want personal contact for (e.g. security problems), you can contact the project leader at <a href='mailto:marnix@vivesce.re'>marnix@vivesce.re</a>.")
         } else{
@@ -72,36 +44,22 @@ function getTime(){
 }
 
 function sanitize(inp){
-  var charCodes       = [],
-      sanitizedString = "";
-  
-  for(var char in inp){
-    charCodes.push(inp.charCodeAt(char));
-  }
-  
-  for(var code of charCodes){
-    sanitizedString += "&#" + code + ";";
-  }
-  
-  return sanitizedString;
+    return inp.replace(/(\<)/g, "&lt;").replace(/(\>)/g, "&gt;");
 }
 
 function write(text){
     var screen = document.getElementById("screen");
-    screen.innerHTML+= "<p class='code'>["+getTime()+"] &lt;<span class='person'>~SICK</span>&gt; "+sanitize(text)+"</p>";
+    screen.innerHTML+= "<p class='code'>["+getTime()+"] &lt;<span class='person'>~SICK</span>&gt; "+text+"</p>";
 }
 
-var lastText = "";
+
 function getcommand(e){
     if(e.keyCode == 13 && this.value != ""){
         e.preventDefault();
-        var text = this.value;
+        var text = sanitize(this.value);
         this.outerHTML = text;
-        lastText = text;
         parse(text);
         getUserInput();
-    } else if(e.keyCode == 38 && lastText != ""){
-        this.value = lastText;
     }
 }
 
@@ -113,8 +71,8 @@ function getUserInput(){
     document.getElementById("input").onkeydown = getcommand;
 
 }
-write("SICK - <i>So sick you'll toss your cookies!</i>")
-write("Please enter a command. For a list of commands, say \"/commands\".");
+write("SICK IRC Client - <i>So sick you'll toss your cookies!</i>")
+write("Please enter a command, for a list of commands, say \"/commands\".");
 getUserInput();
 
 //Chat bot o matic three thousand
@@ -148,9 +106,9 @@ function chat(text){
     text = text.toLowerCase();
     hasSpoke = false;
     
-    if(text.indexOf("hail eris!") >=0){
+    if(text.indexOf("hail discordia!") >=0){
         hasSpoke = true;
-        write("Hail Discordia!");
+        write("Hail Eris!");
     }
     
     if(text.indexOf("hello") >= 0 ||
